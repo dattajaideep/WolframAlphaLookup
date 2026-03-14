@@ -5,6 +5,6 @@
     },
     {
         "caption": "Wolfram: LLM API",
-        "command": "wolfram_llm_api"
+        "command": "wolfram_llm_assistant"
     }
 ]

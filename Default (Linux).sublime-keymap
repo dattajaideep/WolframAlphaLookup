@@ -8,7 +8,7 @@
   {
     "command": "wolfram_llm_assistant",
     "keys": [
-      "ctrl+alt+l"
+      "ctrl+alt+shift+l"
     ]
   },
   {

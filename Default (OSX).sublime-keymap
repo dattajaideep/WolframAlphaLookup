@@ -6,13 +6,13 @@
     ]
   },
   {
-    "command": "wolfram_llm_aapi",
+    "command": "wolfram_llm_assistant",
     "keys": [
       "ctrl+alt+l"
     ]
   },
   {
-    "command": "wolfram_auto_complete",
+    "command": "auto_complete",
     "keys": [
       "ctrl+alt+w"
     ]

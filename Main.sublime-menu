@@ -4,7 +4,8 @@
         "children":
         [
         	{"caption" : "-"},
-            { "command": "wolfram_alpha_lookup", "caption": "Wolfram Lookup", "mnemonic": "W" }
+            { "command": "wolfram_alpha_lookup", "caption": "Wolfram Lookup", "mnemonic": "W" },
+            { "command": "wolfram_llm_aapi", "caption": "Wolfram LLM api", "mnemonic": "L" }
         ]
     }
 ]

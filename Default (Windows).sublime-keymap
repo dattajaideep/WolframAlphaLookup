@@ -4,5 +4,17 @@
     "keys": [
       "ctrl+alt+a"
     ]
+  },
+  {
+    "command": "wolfram_llm_api",
+    "keys": [
+      "ctrl+alt+l"
+    ]
+  },
+  {
+    "command": "wolfram_auto_complete",
+    "keys": [
+      "ctrl+alt+w"
+    ]
   }
 ]

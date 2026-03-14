@@ -56,10 +56,10 @@ class WolframLlmAssistantCommand(sublime_plugin.TextCommand):
 
             error = None
         except urllib.error.HTTPError as e:
-            error = f"HTTP Error {e.code}: {e.reason}"
+            error = "HTTP Error {}: {}".format(e.code, e.reason)
             result = None
         except urllib.error.URLError as e:
-            error = f"Network Error: {e.reason}"
+            error = "Network Error: {}".format(e.reason)
             result = None
         except Exception as e:
             error = str(e)
@@ -69,7 +69,7 @@ class WolframLlmAssistantCommand(sublime_plugin.TextCommand):
 
     def _insert_result(self, query, result, error):
         if error:
-            sublime.error_message(f"Wolfram Error:\n{error}")
+            sublime.error_message("Wolfram Error:\n{}".format(error))
             sublime.status_message("Wolfram Query failed")
             return
 
@@ -78,17 +78,17 @@ class WolframLlmAssistantCommand(sublime_plugin.TextCommand):
         sublime.status_message("Wolfram query complete!")
 
     def format_result(self, query, result):
-        header = f"\n\n Wolfram Result for:\n{query}\n{'-'*60}\n"
+        header = "\n\n Wolfram Result for:\n{}\n{}\n".format(query, '-'*60)
 
         # Clean up and indent important lines
         formatted_lines = []
         for line in result.splitlines():
             if re.search(r'[=∫^√→]', line):
-                formatted_lines.append(f"    {line}")
+                formatted_lines.append("    {}".format(line))
             else:
                 formatted_lines.append(line.strip())
 
-        footer = f"\n{'-'*60}\n"
+        footer = "\n{}\n".format('-'*60)
         return header + "\n".join(formatted_lines) + footer
 
 
@@ -96,7 +96,7 @@ class WolframAutocomplete(sublime_plugin.EventListener):
 
     def on_query_completions(self, view, prefix, locations):
         completions = [
-            (f"{func}\tWolfram", f"{func}()")
+            ("{}\tWolfram".format(func), "{}()".format(func))
             for func in WOLFRAM_FUNCTIONS
             if func.lower().startswith(prefix.lower())
         ]
